@@ -68,7 +68,7 @@ public class OnlinePaymentController extends HttpServlet {
 		System.out.println("Selected Image File Name : " + file.getSubmittedFileName());
 		p.setMemberid((int)session.getAttribute("currentSessionUser"));
 		p.setTransactionid(request.getParameter("transactionid"));
-		p.setBank_name(request.getParameter("bankname"));
+		p.setBank_name(request.getParameter("bank_name"));
 		dao.onlinePayment(p);
 		
 		//set an upload path of file

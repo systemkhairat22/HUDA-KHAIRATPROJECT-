@@ -1,9 +1,6 @@
 package khairat.model;
 
 import java.util.Date;
-
-
-
 import javax.servlet.http.Part;
 
 public class Payment {

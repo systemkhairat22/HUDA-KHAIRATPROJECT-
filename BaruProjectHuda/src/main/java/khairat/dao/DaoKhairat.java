@@ -17,9 +17,9 @@ public class DaoKhairat {
 	static java.sql.Statement st = null;
 	static ResultSet rs = null;
 	
-	private int paymentid,memberid;
+	private int paymentid,memberid,applicationid,adminid;
 	private double payment_amount;
-	private String bankname,transactionid,payment_receipt;
+	private String bankname,transactionid,payment_receipt,appclaim_status,deathcertificate;
 	private Date payment_date;
 	private String inputFile ;
 	//CREATE CASH PAYMENT
@@ -35,7 +35,7 @@ public class DaoKhairat {
 			con = ConnectionManager.getConnection();
 			
 			//create statement
-			ps = con.prepareStatement("INSERT INTO payment(payment_date,payment_amount,memberid) values(?,?,?,?)");
+			ps = con.prepareStatement("INSERT INTO payment(payment_date,payment_amount,memberid) values(?,?,?)");
 			ps.setDate(1, sqlDate);
 			ps.setDouble(2, payment_amount);
 			ps.setInt(3, memberid);
@@ -72,6 +72,34 @@ public class DaoKhairat {
 			ps.setInt(4, memberid);
 			ps.setString(5, transactionid);
 			ps.setString(6, bankname);
+			//execute query
+			ps.executeUpdate();
+			System.out.println("Successfully inserted");
+			
+			//close connection
+            con.close();
+		}catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
+	//CREATE APPLICATION CLAIM
+	public void applicationClaim(Claimkhairat c) {
+		appclaim_status = c.getAppclaim_status();
+		memberid = c.getMemberid();
+		adminid = c.getAdminid();
+		deathcertificate = c.getDeathcertificate();
+		
+		try {
+			//call getConnection() method
+			con = ConnectionManager.getConnection();
+			
+			//create statement
+			ps = con.prepareStatement("INSERT INTO applicationclaim (appclaim_status,memberid,adminid,deathcertificate) values(?,?,?,?)");
+			ps.setString(1, appclaim_status);
+			ps.setInt(2, memberid);
+			ps.setInt(3, adminid);
+			ps.setString(4, deathcertificate);
 			//execute query
 			ps.executeUpdate();
 			System.out.println("Successfully inserted");
@@ -122,6 +150,39 @@ public class DaoKhairat {
 		}
 		return payment;
 	}
+	
+	//GET ALL APLICATION CLAIM
+	public static List<Claimkhairat> getAllAppClaim(){
+		List<Claimkhairat> claimkhairat = new ArrayList<Claimkhairat>();
+		
+		try {
+			//call connection
+			con = ConnectionManager.getConnection();
+			
+			//create statement
+			st = con.createStatement();
+			String sql = "SELECT * FROM applicationclaim";
+			
+			//execute query
+			rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				Claimkhairat c = new Claimkhairat();
+				c.setApplicationid(rs.getInt("applicationid"));
+				c.setAppclaim_status(rs.getString("appclaim_status"));
+				c.setMemberid(rs.getInt("memberid"));
+				c.setAdminid(rs.getInt("adminid"));
+				c.setDeathcertificate(rs.getString("deathcertificate"));
+				claimkhairat.add(c);
+			}
+			//close connection
+			con.close();
+		}catch(Exception e) {
+  			e.printStackTrace();
+  		}
+		return claimkhairat;
+	}
+	
 	
 	//GET ALL CASH PAYMENT
 	public static List<Payment> getAllCashPayment(){
@@ -225,5 +286,86 @@ public class DaoKhairat {
 		}
 		return p;
 	}
+	
+	//VIEW DEATH CERTIFICATE
+	public static Claimkhairat viewDeathCertById(int applicationid) {
+		Claimkhairat c = new Claimkhairat();
+		try {
+			//call getConnection method
+    		con = ConnectionManager.getConnection();
+    		
+    		//create statement
+    		ps=con.prepareStatement ("SELECT applicationid,deathcertificate FROM applicationclaim WHERE applicationid =?");
+    		ps.setInt(1, applicationid);
+    		
+    		//execute query
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				c.setApplicationid(rs.getInt("applicationid"));
+				c.setDeathcertificate(rs.getString("deathcertificate"));
+				System.out.println("Death Certificate :" + rs.getString("deathcertificate"));
+			}
+			
+			//close connection
+			con.close();
+		}catch(Exception e) {
+    		e.printStackTrace();
+		}
+		return c;
+	}
 
+	//APPROVE APPLICATION
+	public void approveApplication(Claimkhairat c) {
+		adminid = c.getAdminid();
+		applicationid = c.getApplicationid();
+		try {
+			//call getConnection method
+   		 	con = ConnectionManager.getConnection ();
+   		 	
+	   		//create statement
+	   		ps = con.prepareStatement("UPDATE applicationclaim SET adminid=?,appclaim_status=?, WHERE applicationid=?");
+	   		ps.setInt(1, adminid);
+	   		ps.setString(2, "APPROVE");
+	   		ps.setInt(3, applicationid);
+	   		
+		   	//execute query
+	   		ps.executeUpdate();
+
+	   		System.out.println("Application Approve");
+
+	   		//close connection
+	   		con.close();
+		}catch (Exception e) {
+   		 e.printStackTrace();
+   	 	}
+	}
+	
+	//DECLINE APPLICATION
+		public void declineApplication(Claimkhairat c) {
+			adminid = c.getAdminid();
+			applicationid = c.getApplicationid();
+			try {
+				//call getConnection method
+	   		 	con = ConnectionManager.getConnection ();
+	   		 	
+		   		//create statement
+		   		ps = con.prepareStatement("ALTER TABLE applicationclaim DROP CONSTRAINT applicationclaim_adminid_fkey"
+		   				+ "UPDATE applicationclaim SET adminid=?,appclaim_status=?, WHERE applicationid=?"
+		   				+ "ALTER TABLE applicationclaim ADD CONSTRAINT applicationclaim_adminid_fkey FOREIGN KEY (adminid) REFERENCES admin (adminid)");
+		   		ps.setInt(1, adminid);
+		   		ps.setString(2, "DECLINE");
+		   		ps.setInt(3, applicationid);
+		   		
+			   	//execute query
+		   		ps.executeUpdate();
+
+		   		System.out.println("Application Decline");
+
+		   		//close connection
+		   		con.close();
+			}catch (Exception e) {
+	   		 e.printStackTrace();
+	   	 	}
+		}
 }
