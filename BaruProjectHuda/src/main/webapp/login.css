@@ -1,0 +1,125 @@
+@charset "ISO-8859-1";
+
+html, body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url('./assets/bg-login.jpeg');
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.card{
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+  height: 450px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+  box-sizing:border-box;
+  transition: .3s;
+  cursor:pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.title{
+  font-family: 'Varela Round', sans-serif;
+  text-align: center;
+  color: #e1b96b;
+}
+
+.title h1{
+  font-size: 28px;
+  font-weight: 400 !important;
+}
+
+.input-block i{
+  position: absolute;
+  color: #FF927A;
+  top: 14px;
+  left: 48px;
+}
+.input-block{
+  display: flex;
+  justify-content:center;
+  flex-direction: column;
+  align-items:center;
+}
+.block{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  width: 100%;
+  margin-top: 15px;
+  position:relative;
+  transition: .3s;
+}
+.block:hover{
+  transform:translate(0px,-2px)
+}
+
+input{
+  box-sizing:border-box;
+  padding-left: 35px;
+  color: #946d1e;
+  background: #F8F5F0;
+  border: none;
+  border-radius: 50px;
+  width: 260px;
+  height: 45px;
+  outline: none;
+}
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #946d1e;
+  opacity: 0.6; /* Firefox */
+}
+
+.btnLogin{
+  outline: none;
+  cursor:pointer;
+  border: none;
+  color: white;
+  background: #d49c2b;
+  margin-top: 20px;
+  height: 45px;
+  width: 260px;
+  font-size: 18px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.btnLogin:hover{
+  transform:translate(0px,-2px)
+}
+
+.link-block{
+  margin-top: -10px;
+  font-family: 'Varela Round', sans-serif;
+  color: #3f897e;
+  opacity: 0.8;
+}
+
+.forget {
+  margin-top: 0;
+}
+
+.create{
+  margin-top: 50px;
+  bottom: 0;
+}
+
+.create i {
+  margin-left: 10px;
+}
