@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>Login Member</title>
    <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link rel="stylesheet" href="style-custom.css" type="text/css">
+      <!-- - - <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />--->
+       <!-- <link rel="stylesheet" href="style-custom.css" type="text/css">-->
 <style>
 html {
   height: 100%;

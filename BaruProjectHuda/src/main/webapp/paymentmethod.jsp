@@ -135,9 +135,8 @@ body {
 
    background-color: rgba(0,0,0, 0.9);
    color: white;
- flex-flow: row wrap;
-
-            }
+ flex-flow: row wrap;}
+ 
 button[id="cash"]{
   background-color: #04AA6D;
   border: none;
@@ -252,7 +251,7 @@ h4{
        <form style= "padding:50px 50px 50px 50px; text-align:auto;">
 	<h4>Please select payment method</h4><br>
 	
-	<button onclick="document.location= 'OnlinePaymentController'" id=online>Online payment</button>
+	<button href= "OnlinePaymentController" id=online>Online payment</button>
 	<button onclick="document.location= 'CashPaymentController'" id= cash >Cash payment</button>
 	
 	</form>

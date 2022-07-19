@@ -1,429 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Home</title>
-        
-        <!-- Favicon-->
-       <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
-       <!-- <link rel="stylesheet" href="style-custom.css" type="text/css">--->
-        
-        <style>
-         .nav > .nav-btn > label {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    padding: 13px;
-  }
-  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .nav > .nav-btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid #eee;
-  }
-  .nav > .nav-links {
-    position: absolute;
-    display: block;
-    width: 100%;
-    background-color: #323232 ;
-    height: 0px;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 80px;
-    left: 0px;
-  }
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 
-  .nav > .nav-links > a {
-    display: block;
-    width: 100%;
-    padding: 13px 30px 13px 30px;
-  }
-  .nav > #nav-check:not(:checked) ~ .nav-links {
-    height: 0px;
-  }
-  .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-    z-index: 2;
-  }
+<style> 
+input[type=text], input[type=password] { 
+  width: 100%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid #ccc; 
+  box-sizing: border-box; 
+} 
+ 
+button { 
 
-        
-            .nav {
-  padding: 0px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  width: 100%;
-  background-color: black;
-  position: relative;
-}
-
-.nav > .nav-header {
-  display: inline;
-}
-
-.nav > .nav-header > .nav-title {
-  display: inline-block;
-  font-size: 22px;
-  color: #fff;
-  padding: 10px 10px 10px 10px;
-}
-
-.nav > .nav-btn {
-  display: none;
-}
-
-.nav > .nav-links {
-  display: inline;
-  float: right;
-  font-size: 15px;
-  text-transform: uppercase;
-}
-
-.nav > .nav-links > a {
-  display: inline-block;
-  padding: 13px 10px 13px 10px;
-  text-decoration: none;
-  color: #efefef;
-}
-
-.nav > .nav-links > a:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-
-}
-
-.nav > .nav-links > a.active {
-  background-color: rgba(0, 0, 0, 0.3);
-
-}
-
-.nav > #nav-check {
-  display: none;
-}
-            
-            html,body{
-                min-height: 100vh;
-               
-            }
-
-            .min-height{
-                min-height: 50vh;
-            }
-
-
-            .card-option{
-                background-color:  rgba(255, 255,255, 0.8);
-                padding: 10px;
-                border-radius: 5px;
-                border: 1px solid #0a6061;
-                border-bottom: 5px solid #0a6061;
-                cursor: pointer;
-            }
-
-           
-            .cursor-pointer{
-                cursor: pointer;
-            }
-            
-            input{
-                 display: block;
-                  width: 100%;
-                  padding: 0.375rem 0.75rem;
-                  font-size: 1rem;
-                  font-weight: 400;
-                  line-height: 1.5;
-                  color: #212529;
-
-                  background-color: #f2f4f5 ;
-                  background-clip: padding-box;
-                  border: 1px solid #ced4da;
-                  -webkit-appearance: none;
-                     -moz-appearance: none;
-                          appearance: none;
-                  border-radius: 0.25rem;
-                  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-            }
-
-            .bg-header{
-              background-repeat: no-repeat;
-              background-attachment: scroll;
-              background-position: center center;
-              background-size: cover;
-             background-image: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(0,0,0,0.2) 0), url(./assets/masjidjamek.jpg);
-            }
-
-            .btn-login{
-              outline: none;
-              cursor:pointer;
-              border: none;
-              color: white;
-              background: black;
-              margin-top: 20px;
-              height: 45px;
-              width: 180px;
-              font-size: 14px;
-              border-radius: 50px;
-              transition: .3s;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-
-            .btn-login:hover{
-              color: black;
-              background: white;
-              border: 1px solid black;
-            }
-
-            .btn-login1{
-              outline: none;
-              cursor:pointer;
-              border: none;
-              margin-top: 20px;
-              height: 45px;
-              width: 180px;
-              font-size: 14px;
-              border-radius: 50px;
-              transition: .3s;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-               color: black;
-              background: white;
-              border: 1px solid black;
-            }
-
-            .btn-login1:hover{
-               color: white;
-                background: black;
-            }
-
-            .bg-gray{
-              background-color: #f2f4f5;
-            }
-            
-            /*card*/
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-}
-.card > hr {
-  margin-right: 0;
-  margin-left: 0;
-}
-.card > .list-group {
-  border-top: inherit;
-  border-bottom: inherit;
-}
-.card > .list-group:first-child {
-  border-top-width: 0;
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
-}
-.card > .list-group:last-child {
-  border-bottom-width: 0;
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
-}
-
-/*card*/
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-}
-.card > hr {
-  margin-right: 0;
-  margin-left: 0;
-}
-.card > .list-group {
-  border-top: inherit;
-  border-bottom: inherit;
-}
-.card > .list-group:first-child {
-  border-top-width: 0;
-  border-top-left-radius: calc(0.25rem - 1px);
-  border-top-right-radius: calc(0.25rem - 1px);
-}
-.card > .list-group:last-child {
-  border-bottom-width: 0;
-  border-bottom-right-radius: calc(0.25rem - 1px);
-  border-bottom-left-radius: calc(0.25rem - 1px);
-}
-
-        </style>
-</head>
-<body>
- <!-- Responsive navbar-->
-        <div class="nav">
-              <input type="checkbox" id="nav-check">
-              <div class="nav-header">
-                <div class="nav-title d-flex align-items-center">
-                  <p class="mb-brand">Home</p>
-                </div>
-              </div>
-              <div class="nav-btn">
-                <label for="nav-check">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </label>
-              </div>
-              
-                
-           
-        </div>
-        <!-- Page content-->
-        <div class="container-fluid bg-theme1 pt-5 pb-5 bg-header" style="height: 600px;">
-
-            <div>
-                <h1 class="text-white mt-5" style="margin-left: 5rem;">Welcome to E-Khairat<br>Have a nice day!</h1>
-            </div>    
-            <div>
-              
-                <p class="text-white mt-0" id="currentdate" style="margin-left: 5rem;"> current date</p>
-               
-            </div>  
-            <div  class="mt-3" style="padding-left: 5rem; display: flex; align-items: center; flex-flow: row wrap;">
-              
-               <a href = "loginmember.jsp" class="btn-login1 me-2" >
-                    Login Member
-                </a>
-                <a href = "loginadmin.jsp" class="btn-login1 me-2" >
-                    Login Admin
-                </a>
-            </div>
-            
-          
-        </div>
-        
-
-         <div class="container-fluid bg-white pt-5 pb-5 min-height">
-
-            <div class="row justify-content-center mt-4 mb-3 pe-5 ps-5">
-
-                <div class="col-10 col-sm-10 col-md-12 col-lg-8 col-xl-8 mb-4 doctor">
-
-                    <div class="card w-100 doctor-data">
-                    
-                      <div class="card-body">
-                        <h5 class="card-title mt-0 fs-5 text-dark mb-4 mt-4  text-center">ABOUT MOSQUE</h5>
-                        <p class="card-text text-justify mt-2 mb-5 text-center fs-6">Gelang Ptah Jamek Mosque. It was completed on February 28,2016. It was located in the Jalan Mentimun, Gelang
+  background-color: grey; 
+  color: white; 
+  padding: 14px 20px; 
+  margin: 8px 0; 
+  border: none; 
+  cursor: pointer; 
+  width: 100%; 
+} 
+ 
+button:hover { 
+  opacity: 0.8; 
+} 
+ 
+ 
+.imgcontainer { 
+  text-align: center; 
+  
+  background: #353c49; 
+} 
+ 
+img.avatar { 
+  width: 40%; 
+  border-radius: 50%; 
+} 
+ 
+.container { 
+  padding: 16px; 
+  background:#143d59 ; 
+} 
+ 
+span.psw { 
+  float: right; 
+  
+} 
+ 
+/* Change styles for span and cancel button on extra small screens */ 
+@media screen and (max-width: 300px) { 
+  span.psw { 
+    
+     float: none; 
+  } 
+ 
+} 
+.grid-container { 
+  display: grid; 
+  grid-template-columns: auto auto ; 
+  background-color: white; 
+  height: 100%; 
+   
+} 
+ 
+.grid-container > div { 
+  background-color: white; 
+  text-align: center; 
+  padding: 20px 0; 
+  font-size: 30px; 
+  height: 100%; 
+} 
+.item1 { 
+ 
+  grid-row-start: 1; 
+  grid-row-end: 1; 
+} 
+.item1 { 
+ 
+ height: 500px; 
+} 
+</style> 
+</head> 
+<body> 
+ 
+ 
+<div class="grid-container"> 
+ 
+ <div class="item1"> 
+<form> 
+  <div class="imgcontainer"> 
+    <img src="./assets/masjidjamek.jpg" style="width:500px;height:900px;"> 
+  </div> 
+</div> 
+<div class="item1"> 
+  <div class="container"> 
+  <img class="logo" alt="" src="./assets/logo.jpeg" style="width:170px;border-radius: 50%;"> 
+  <p style="font-size:30px;font-family:Georgia,serif;text-align: center;color:white;">Masjid Jamek Gelang Patah</p> 
+          <br> 
+          <p style="text-align: center;color:white;font-size:15px;">Gelang Ptah Jamek Mosque. It was completed on February 28,2016. It was located in the Jalan Mentimun, Gelang
                         patah, the name given by the First Menteri Besar of Johor, Dato "Jaafar Muhammad.Other than
                         that, the mosque has a capacity for 2,500 peopl before renovation. The facilities that available are funeral
                         service, office, tazkirah and lecture program fro people in that area. The mosque needed RM 1 million to cover the cost
                         of renovation on June 3,2017 to make a capacity even larger about 5,000 people. The mosque became a center
                         of worship for the community in Gelang Patah,Johor]</p>
-                        
-                      </div>
-                     
-                    </div>
-                    
-                </div>
 
-            </div>
-            
-         </div>
+    <br> 
+    <form action=""> 
+    <input style="width:100px;margin-right:60px; background-color:#C3C6C8; padding:10px 16px; cursor: pointer; text-align:center;" onclick="window.location='loginadmin.jsp'" value="Admin login"> 
+    <input style="width:100px;margin-left:95px; background-color:#C3C6C8; padding:10px 16px; cursor: pointer; text-align:center;" onclick="window.location='loginmember.jsp'" value="Member login"> 
+    </form> 
+    
+    <div class="item1"> 
+  <div class="container"> 
 
-        <div class="container-fluid bg-gray pt-5 pb-5 min-height">
+    
 
-            
-
-            <div class="row justify-content-center mt-4 mb-3 pe-5 ps-5">
-
-                <div class="col-12 text-center">
-                    <h1 class="fs-5 color-gray">Verses From Quran & Hadith Qudsi</h1>
-                    <h1 class="fs-4 text-black" style="font-weight: 400;"></h1>
-                </div>
-
-                <div class="col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4 mb-4 doctor">
-
-                    <div class="card w-100 doctor-data h-100">
-                    
-                      <div class="card-body">
-                        <h5 class="card-title mt-0 fs-5 text-dark mb-4 mt-4  text-center">“Whoever does one good deed will have (the reward of) ten like it and more”</h5>
-                        <p class="card-text text-justify mt-2 mb-5 text-center fs-6">(Sahih Muslim)</p>
-                        
-                      </div>
-                      
-                     
-                    </div>
-                    
-                </div>
-
-                <div class="col-10 col-sm-10 col-md-4 col-lg-4 col-xl-4 mb-4 doctor">
-
-                    <div class="card w-100 doctor-data h-100">
-                    
-                      <div class="card-body">
-                        <h5 class="card-title mt-0 fs-5 text-dark mb-4 mt-4  text-center">“When their specified time arrives, they cannot delay it for a single hour nor can they bring it forward.”</h5>
-                        <p class="card-text text-justify mt-2 mb-5 text-center fs-6">Quran, 16:61</p>
-                        
-                      </div>
-                      
-                     
-                    </div>
-                    
-                </div>
-                
-               </div>
-
-          
-               
-                
-            </div>
-             
-           </div>
-
-        <footer class="footer bg-theme"><p class="m-0 text-center text-white"><b>Copyright &copy; MY PAGE 2022</b></p></footer>
-       
-    </body>
-    <script type="text/javascript">
-        var months = new Array(12);
-        months[0] = "January";
-        months[1] = "February";
-        months[2] = "March";
-        months[3] = "April";
-        months[4] = "May";
-        months[5] = "June";
-        months[6] = "July";
-        months[7] = "August";
-        months[8] = "September";
-        months[9] = "October";
-        months[10] = "November";
-        months[11] = "December";
-
-        var current_date = new Date();
-        month_value = current_date.getMonth();
-        day_value = current_date.getDate();
-        year_value = current_date.getFullYear();
-
-       var date = months[month_value] + " " + day_value + ", " + year_value;
-
-       document.getElementById('currentdate').innerHTML = date;
-
-    </script>
-
-
-</body>
+   
+  </div> 
+</div> 
+  
+</form> 
+  </div> 
 </html>
-
-
