@@ -206,9 +206,11 @@ a{
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
 }
-
-
+p{
+color:white;
 }
+
+
 </style>
 </head>
 <body>
