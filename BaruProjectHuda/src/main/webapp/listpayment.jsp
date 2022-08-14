@@ -212,7 +212,7 @@ button{
 
               </div>
         </div>
-
+ <form style="padding:50px 50px 50px 50px; text-align:center;">
 	<table border="1">
 		<tr>
 			<th>Payment id</th>
@@ -237,6 +237,7 @@ button{
 			</tr>
 		</c:forEach>
 	</table>
+	</form>
 	
       <footer class="footer bg-theme"><p class="m-0 text-center text-white"><b>Copyright &copy; E-Khairat 2022</b></p></footer>
    

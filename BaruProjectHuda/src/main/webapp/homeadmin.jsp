@@ -129,10 +129,9 @@ body {
   }
 }
 .top-nav{
-
-                background-color: rgba(0,0,0, 0.9);
-                color: white;
-                flex-flow: row wrap;
+   background-color: rgba(0,0,0, 0.9);
+   color: white;
+    flex-flow: row wrap;
 
             }
 

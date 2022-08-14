@@ -18,6 +18,7 @@ import model.*;
 @WebServlet("/LoginMemberController")
 public class LoginMemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
 	private DaoMember dao; 
     public LoginMemberController() {
         super();

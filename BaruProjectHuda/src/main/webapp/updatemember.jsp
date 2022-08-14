@@ -5,7 +5,6 @@
 <html>
 <head>
 <style>
-<style>
 /navbar/
 * {
   box-sizing: border-box;
@@ -162,9 +161,6 @@ input[type=button], input[type=reset]{
   color: white;
   text-align: center;
 }
-</style>
-
-
 </style>
 <meta charset="UTF-8">
 <title>Update Member</title>

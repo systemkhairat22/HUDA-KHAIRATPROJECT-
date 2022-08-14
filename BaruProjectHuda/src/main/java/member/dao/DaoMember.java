@@ -1,9 +1,11 @@
 package member.dao;
 
 import java.sql.*;
+
 import java.util.*;
 import connectionDB.*;
 import model.*;
+
 
 public class DaoMember {
 	static Connection con = null;
@@ -15,10 +17,10 @@ public class DaoMember {
 	private int mem_age;
 	private String mem_name, mem_address, mem_email, mem_phonenum, repname, repnum;
 	
-	
 	//LOGIN MEMBER
 	public static Member loginMember(Member m) {
-		mem_icnum= m.getMem_icnum();
+		mem_icnum = m.getMem_icnum();
+		//memberid = m.getMemberid();
 		mem_password = m.getMem_password();
 		
 		try {
@@ -89,7 +91,7 @@ public class DaoMember {
     	mem_address = member.getMem_address();
     	mem_email = member.getMem_email();
     	mem_phonenum = member.getMem_phonenum();
-    	mem_password = member.getMem_password();
+    	mem_password = mem_name.substring(0,2) + mem_icnum.substring(8,12);
     	repname = member.getRepname();
     	repnum = member.getRepnum();
     	
@@ -248,6 +250,6 @@ public class DaoMember {
 			e.printStackTrace();
 		}
   	}
-	
+
 
 }
